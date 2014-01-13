@@ -12,7 +12,11 @@ namespace IevaThinks
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+         name: "LoadOne",
+         url: "{id}",
+         defaults: new { controller = "IevaThought", action = "GetOne", id = UrlParameter.Optional }
+     );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

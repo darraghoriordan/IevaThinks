@@ -754,3 +754,19 @@ tr.pager td {
             margin: 0;
         }
 }
+
+.messageInput {
+    border:0px; /*important*/
+    background-color:transparent; /*important*/ 
+    position:absolute; /*important*/
+    width:280px;
+    height:190px;
+   position:absolute;
+left:620px;
+top:150px;
+font-size:2em;
+font-weight:bold;
+}
+.messageInput:focus { border:0px; /*important*/
+                      outline: none;
+}

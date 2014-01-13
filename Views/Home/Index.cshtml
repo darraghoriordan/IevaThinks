@@ -1,5 +1,15 @@
 ﻿@{
     ViewBag.Title = "Ieva Thinks!";
 }
-<img src="~/Images/main_image.jpg" />
+@using (Html.BeginForm("Save", "IevaThought", FormMethod.Post, new { name = "frmSave", id = "frmSave" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" title="Save and Share" value="Save and Share" />
+}
 
+
+
+<div>
+    <img src="~/Images/main_image.jpg" />
+    <textarea class="messageInput" form="frmSave" title="Thought Text" maxlength="163" autofocus id="txtMessage" name="txtMessage"></textarea>
+</div>
