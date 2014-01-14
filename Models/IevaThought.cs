@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace IevaThinks.Models
+namespace IevaThink.Models
 {
     public class IevaThoughtsContext : DbContext
     {

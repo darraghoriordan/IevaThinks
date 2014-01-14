@@ -1,0 +1,21 @@
+﻿@model IevaThink.Models.IevaThought
+@{
+    ViewBag.Title = "Ieva Thought";
+}<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=1441142482770530";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+@if (Request.IsAuthenticated) {
+    @Html.ActionLink("Create One!", "Create",routeValues:null,htmlAttributes: new {@class="buttonize"});
+    <div class="fb-share-button" data-href="@Request.Url.AbsoluteUri" data-type="button" data-width="200"></div>
+}
+
+<div class="messageInputPositionWrapper">    
+    <img src="~/Images/main_image.jpg" /> 
+    <textarea class="messageInput" title="Thought Text" 
+        maxlength="163" autofocus id="txtMessage" name="txtMessage" disabled>@Model.Thought</textarea>
+</div>

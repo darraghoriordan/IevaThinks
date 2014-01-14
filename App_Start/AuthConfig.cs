@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using IevaThinks.Models;
+using IevaThink.Models;
 
-namespace IevaThinks
+namespace IevaThink
 {
     public static class AuthConfig
     {

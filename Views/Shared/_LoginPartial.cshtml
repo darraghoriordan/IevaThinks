@@ -9,6 +9,6 @@
 } else {
     <ul>
         @*<li>@Html.ActionLink("Log in with Facebook", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
-  <li>Login to save... @Html.Action("ExternalLoginsList","Account", new { ReturnUrl = Url.RouteUrl("Default")})
+  <li>Login to create and share!...</li><li> @Html.Action("ExternalLoginsList","Account", new { ReturnUrl = Url.RouteUrl("Default")})
       </li>   </ul>
 }

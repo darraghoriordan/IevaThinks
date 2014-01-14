@@ -5,23 +5,20 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace IevaThinks
+namespace IevaThink
 {
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapRoute(
-         name: "LoadOne",
-         url: "{id}",
-         defaults: new { controller = "IevaThought", action = "GetOne", id = UrlParameter.Optional }
-     );
+        
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "IevaThought", action = "Details", id = UrlParameter.Optional }
             );
+
         }
     }
 }

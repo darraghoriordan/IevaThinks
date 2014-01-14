@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using IevaThinks.Filters;
-using IevaThinks.Models;
+using IevaThink.Filters;
+using IevaThink.Models;
 
-namespace IevaThinks.Controllers
+namespace IevaThink.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
@@ -54,7 +54,7 @@ namespace IevaThinks.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "IevaThought");
         }
 
         //
@@ -81,7 +81,7 @@ namespace IevaThinks.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Details", "IevaThought");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -337,7 +337,7 @@ namespace IevaThinks.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details", "IevaThought");
             }
         }
 
