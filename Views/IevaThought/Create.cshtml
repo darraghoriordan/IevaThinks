@@ -6,8 +6,7 @@
     @Html.AntiForgeryToken()
     <input type="submit" title="Save and Share" value="Save and Share" />
 }
-  @*@Html.ActionLink("View List", "List", "IevaThought",routeValues: new { count = 10 },htmlAttributes: null);*@
-   
+  
 <div class="messageInputPositionWrapper">
    <img src="~/Images/main_image.jpg" /> 
     <textarea class="messageInput" form="frmSave" title="Thought Text" maxlength="163" autofocus id="txtMessage" name="txtMessage">@Model.Thought</textarea>

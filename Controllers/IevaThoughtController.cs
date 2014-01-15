@@ -11,38 +11,57 @@ namespace IevaThink.Controllers
     
     public class IevaThoughtController : Controller
     {
-        //
+        [HttpGet]
+        public ActionResult Random()
+        {
+            var result = GetRandomResult();
+            if (result != null)
+            return RedirectToRoute("t_redirect", routeValues: new { Id = result.Id });
+
+            return View();
+        }
+        private IevaThought GetRandomResult() { 
+              
+            var c = new IevaThoughtsContext();
+            Random r = new Random();
+            //find a random thought
+            //this will get slow without caching
+           return c.IevaThoughts.AsEnumerable().ElementAt(r.Next(0, c.IevaThoughts.Count()));
+        
+        }
         // GET: /IevaThought/
         [HttpGet]
         public ActionResult Details(int? Id)
         {
             IevaThought result = null;
             var c = new IevaThoughtsContext();
-            if (Id.GetValueOrDefault() > 0)
+            var givenId = Id.GetValueOrDefault();
+            if (givenId > 0)
             {
 
-                var it = c.IevaThoughts.FirstOrDefault(t => t.Id == Id);
-                if (it != null)
-                {
-                    it.ViewCount++;
+                result = c.IevaThoughts.FirstOrDefault(t => t.Id == givenId);
+               if (result == null)
+                   return new HttpNotFoundResult("Couldn't find thought " + givenId);
+              
+                    result.ViewCount++;
                     c.SaveChanges();
-                }
+  
             }
             else
             {
                 if (c.IevaThoughts.Count() >= 1)
                 {
-                    Random r = new Random();
-                    //find a random thought
-                    //this will get slow without caching
-                    result = c.IevaThoughts.AsEnumerable().ElementAt(r.Next(0, c.IevaThoughts.Count()));
+                    result = GetRandomResult();
                 }
                 else
                 { 
                     //nada
                     result = new IevaThought();
                 }
+            
             }
+
+          
             return View(result);
         }
         [HttpGet]
@@ -78,7 +97,8 @@ namespace IevaThink.Controllers
             };
             c.IevaThoughts.Add(t);
             c.SaveChanges();
-            return View("Details", t);
+            return RedirectToRoute("t_redirect", routeValues: new { Id = t.Id });
+            
         }
     }
 }
