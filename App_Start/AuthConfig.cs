@@ -23,8 +23,8 @@ namespace IsmsWebApplication
             //    consumerSecret: "");
 
             OAuthWebSecurity.RegisterFacebookClient(
-                appId: "215230322000284",
-                appSecret: "cae9af6570b5c1c55ef7e4ab0eb568ae");
+                appId: "1462452777311627",
+                appSecret: "6a3af9faef4ecb565da7f3ec92a8527b");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }

@@ -320,9 +320,11 @@
     <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
     <None Include="Properties\PublishProfiles\AWS.pubxml" />
     <None Include="Properties\PublishProfiles\LOCAL.pubxml" />
+    <Content Include="Images\editespeech.jpg" />
     <Content Include="Images\ievaThought.jpg" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\KristineSpeech.jpg" />
+    <Content Include="Images\taniaspeech.jpg" />
     <Content Include="Scripts\createIsmFunctions.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />

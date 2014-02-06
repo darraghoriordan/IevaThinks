@@ -1,7 +1,7 @@
 ﻿@model IsmsWebApplication.Models.Ism
 
 @section head_additions{
-    <meta name="og:url" content="@Url.RouteUrl("t_redirect",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" />
+    <meta name="og:url" content="@Url.RouteUrl("Default",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" />
     <meta name="og:title" content="@ViewBag.Title" />
     @*<meta name="og:image" content="~/Images/main_image.jpg" />*@
     <style>
@@ -14,8 +14,8 @@
 </style>
     }
 <div id="fb-root"></div>
-
-
+<h2>@ViewBag.TitleHeader</h2>
+<div id="buttonContainer">
  @Html.ActionLink("Randomise", "Random", routeValues: null, htmlAttributes: new { @class = "buttonize" })
 
 @if (Request.IsAuthenticated)
@@ -24,8 +24,8 @@
     @Html.ActionLink("Create One!", "Create", routeValues: new { configid=@Model.IsmConfiguration.Id }, htmlAttributes: new { @class = "buttonize" })
     
 }
-    @*<div class="fb-share-button" data-href="@Url.RouteUrl("t_redirect",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" data-type="button" data-width="200"></div>*@
-
+    <div class="fb-share-button" data-href="@Url.RouteUrl("Default",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" data-type="button" data-width="200"></div>
+</div>
 <div class="messageInputPositionWrapper">
     <img src="@Url.Content(Model.IsmConfiguration.BaseImageUrl)" />
     <textarea class="messageInput" title="Thought Text" 
@@ -37,7 +37,7 @@ Added by @Model.Username on @Model.CreatedOn.ToLocalTime()
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=1441142482770530";
+    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=1462452777311627";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script> 
     }

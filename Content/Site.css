@@ -760,7 +760,7 @@ tr.pager td {
 position:relative;
 left:0px;
 top:0px;
-margin-top: 20px;
+margin-top: 70px;
 }
 .messageInput {
     border:0px; /*important*/
@@ -779,9 +779,18 @@ border: 1px solid #787878;
 cursor: pointer;
 font-size: 1.2em;
 font-weight: 600;
-padding: 5px;
+padding: 5px 5px 9px 25px;
 width: 100px;
 display:block;
 float: left;
 margin-right: 6px;
+}
+
+#buttonContainer {
+    width:100%;
+    clear:both;
+
+}
+h2 {
+margin-bottom:15px;
 }

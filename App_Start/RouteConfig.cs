@@ -14,16 +14,19 @@ namespace IsmsWebApplication
             routes.MapMvcAttributeRoutes();
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
             routes.MapRoute(
-            name: "random_redirect",
-            url: "random",
-            defaults: new { controller = "Ism", action = "Random" }
+                name: "random_redirect",
+                url: "random",
+                defaults: new { controller = "Ism", action = "Random" }
             );
-            routes.MapRoute(
-         name: "t_redirect",
-         url: "ism/{id}",
-         defaults: new { controller = "Ism", action = "Details", id = UrlParameter.Optional }
-     );
+
+           // routes.MapRoute(
+           //     name: "t_redirect",
+           //     url: "ism/{id}",
+          //      defaults: new { controller = "Ism", action = "Details", id = UrlParameter.Optional }
+          //  );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

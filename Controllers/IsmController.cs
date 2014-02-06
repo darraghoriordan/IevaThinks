@@ -18,9 +18,11 @@ namespace IsmsWebApplication.Controllers
         public ActionResult Random()
         {
             var result = GetRandomResult();
-            ViewBag.Title = result.IsmConfiguration.TargetName + "ism";
+
             if (result != null)
-                return RedirectToRoute("t_redirect", routeValues: new { Id = result.Id });
+            {                
+                return RedirectToAction("Details", "Ism", new { Id = result.Id });             
+            }
 
             return View();
         }
@@ -70,7 +72,8 @@ namespace IsmsWebApplication.Controllers
                 db.SaveChanges();
             }
 
-            ViewBag.Title = result.IsmConfiguration.TargetName + "ism";
+            ViewBag.TitleHeader =string.Format("{0}ism #{1}", result.IsmConfiguration.TargetName,result.Id);
+            ViewBag.Title = "Isms - " + ViewBag.TitleHeader;
             return View(result);
         }
         [HttpGet]
@@ -123,7 +126,7 @@ namespace IsmsWebApplication.Controllers
             };
             db.Isms.Add(t);
             db.SaveChanges();
-            return RedirectToRoute("t_redirect", routeValues: new { Id = t.Id });
+            return RedirectToAction("Details", "Ism", new { Id = t.Id });   
 
         }
     }

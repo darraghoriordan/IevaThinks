@@ -52,9 +52,9 @@ namespace IsmsWebApplication.Migrations
                    {
                        BaseImageUrl = "~/Images/ievaThought.jpg",
                        BubbleTextInputHeight = "190",
-                       BubbleTextInputWidth = "280",
-                       BubbleTextInputLeft = "590",
-                       BubbleTextInputTop = "45",
+                       BubbleTextInputWidth = "290",
+                       BubbleTextInputLeft = "570",
+                       BubbleTextInputTop = "60",
                        CreatedOn = DateTime.UtcNow,
                        TargetName = "Ieva",
                        Username = adminUser
@@ -62,12 +62,34 @@ namespace IsmsWebApplication.Migrations
            configs.Add(new IsmConfiguration()
            {
                BaseImageUrl = "~/Images/kristinespeech.jpg",
-               BubbleTextInputHeight = "190",
+               BubbleTextInputHeight = "300",
                BubbleTextInputWidth = "280",
                BubbleTextInputLeft = "640",
-               BubbleTextInputTop = "60",
+               BubbleTextInputTop = "50",
                CreatedOn = DateTime.UtcNow,
                TargetName = "Kristine",
+               Username = adminUser
+           });
+           configs.Add(new IsmConfiguration()
+           {
+               BaseImageUrl = "~/Images/taniaspeech.jpg",
+               BubbleTextInputHeight = "190",
+               BubbleTextInputWidth = "380",
+               BubbleTextInputLeft = "540",
+               BubbleTextInputTop = "60",
+               CreatedOn = DateTime.UtcNow,
+               TargetName = "Tania",
+               Username = adminUser
+           });
+           configs.Add(new IsmConfiguration()
+           {
+               BaseImageUrl = "~/Images/editespeech.jpg",
+               BubbleTextInputHeight = "200",
+               BubbleTextInputWidth = "270",
+               BubbleTextInputLeft = "180",
+               BubbleTextInputTop = "20",
+               CreatedOn = DateTime.UtcNow,
+               TargetName = "Edite",
                Username = adminUser
            });
            foreach (var c in configs)
