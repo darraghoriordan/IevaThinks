@@ -6,17 +6,8 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace IevaThink.Models
+namespace IsmsWebApplication.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-    }
 
     [Table("UserProfile")]
     public class UserProfile

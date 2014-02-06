@@ -1,4 +1,4 @@
-﻿@model IevaThink.Models.LoginModel
+﻿@model IsmsWebApplication.Models.LoginModel
 
 @{
     ViewBag.Title = "Log in";
@@ -9,7 +9,7 @@
 </hgroup>
 
 <section class="social" id="socialLoginForm">
- <h2>with...</h2>
+ <h3>with...</h3>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 

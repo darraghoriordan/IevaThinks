@@ -6,30 +6,35 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace IevaThink.Models
+namespace IsmsWebApplication.Models
 {
-    public class IevaThoughtsContext : DbContext
+   
+    public class Ism
     {
-        public IevaThoughtsContext()
-            : base("DefaultConnection")
-        {
+        public Ism() {
+            this.IsmConfiguration = new IsmConfiguration();
         }
 
-        public DbSet<IevaThought> IevaThoughts { get; set; }
-    }
-    public class IevaThought
-    {
+        public Ism(IsmConfiguration cfg) {
+            this.IsmConfiguration = cfg;
+        }
+
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+      
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Thought")]
-        public string Thought { get; set; }
+        [Display(Name = "Ism")]
+        public string IsmText { get; set; }
+
+        public IsmConfiguration IsmConfiguration { get; set; }
         [Display(Name = "Created By")]
         public string Username { get; set; }
         [Display(Name = "Created On")]
+        [DataType(DataType.DateTime)]
         public DateTime CreatedOn { get; set; }
         [Display(Name = "Shared On")]
+        [DataType(DataType.DateTime)]
         public DateTime SharedOn { get; set; }
         [Display(Name = "Number of Views")]
         public int ViewCount { get; set; }

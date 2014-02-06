@@ -1,0 +1,74 @@
+﻿@model IsmsWebApplication.Models.IsmConfiguration
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>IsmConfiguration</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TargetName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TargetName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BaseImageUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BaseImageUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BubbleTextInputTop)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BubbleTextInputTop)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BubbleTextInputLeft)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BubbleTextInputLeft)
+    </div>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.BubbleTextInputWidth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BubbleTextInputWidth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BubbleTextInputHeight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BubbleTextInputHeight)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -8,10 +8,11 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using IevaThink.Filters;
-using IevaThink.Models;
+using IsmsWebApplication.Filters;
+using IsmsWebApplication.Models;
+using IsmsWebApplication.DataContext;
 
-namespace IevaThink.Controllers
+namespace IsmsWebApplication.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
@@ -54,7 +55,7 @@ namespace IevaThink.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Details", "IevaThought");
+            return RedirectToAction("Details", "Ism");
         }
 
         //
@@ -81,7 +82,7 @@ namespace IevaThink.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Details", "IevaThought");
+                    return RedirectToAction("Details", "Ism");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -263,7 +264,7 @@ namespace IevaThink.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (IsmDataContext db = new IsmDataContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists
@@ -337,7 +338,7 @@ namespace IevaThink.Controllers
             }
             else
             {
-                return RedirectToAction("Details", "IevaThought");
+                return RedirectToAction("Details", "Isms");
             }
         }
 

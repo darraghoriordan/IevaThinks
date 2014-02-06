@@ -1,0 +1,75 @@
+﻿@model IsmsWebApplication.Models.IsmConfiguration
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>IsmConfiguration</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TargetName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TargetName)
+            @Html.ValidationMessageFor(model => model.TargetName)
+        </div>
+               
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BaseImageUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BaseImageUrl)
+            @Html.ValidationMessageFor(model => model.BaseImageUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BubbleTextInputTop)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BubbleTextInputTop)
+            @Html.ValidationMessageFor(model => model.BubbleTextInputTop)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BubbleTextInputLeft)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BubbleTextInputLeft)
+            @Html.ValidationMessageFor(model => model.BubbleTextInputLeft)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BubbleTextInputWidth)
+        </div>
+                <div class="editor-field">
+            @Html.EditorFor(model => model.BubbleTextInputWidth)
+            @Html.ValidationMessageFor(model => model.BubbleTextInputWidth)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BubbleTextInputHeight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BubbleTextInputHeight)
+            @Html.ValidationMessageFor(model => model.BubbleTextInputHeight)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

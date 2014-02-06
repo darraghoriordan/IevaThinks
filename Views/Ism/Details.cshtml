@@ -1,12 +1,17 @@
-﻿@model IevaThink.Models.IevaThought
-@{
-    ViewBag.Title = "Ieva Thought";
-}
+﻿@model IsmsWebApplication.Models.Ism
+
 @section head_additions{
     <meta name="og:url" content="@Url.RouteUrl("t_redirect",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" />
     <meta name="og:title" content="@ViewBag.Title" />
     @*<meta name="og:image" content="~/Images/main_image.jpg" />*@
-    
+    <style>
+        .messageInput {
+            width: @(Model.IsmConfiguration.BubbleTextInputWidth)px;
+            height:@(Model.IsmConfiguration.BubbleTextInputHeight)px;
+            left:@(Model.IsmConfiguration.BubbleTextInputLeft)px;
+            top: @(Model.IsmConfiguration.BubbleTextInputTop)px;
+        }
+</style>
     }
 <div id="fb-root"></div>
 
@@ -16,15 +21,15 @@
 @if (Request.IsAuthenticated)
 {
   
-    @Html.ActionLink("Create One!", "Create", routeValues: null, htmlAttributes: new { @class = "buttonize" })
+    @Html.ActionLink("Create One!", "Create", routeValues: new { configid=@Model.IsmConfiguration.Id }, htmlAttributes: new { @class = "buttonize" })
     
 }
-    <div class="fb-share-button" data-href="@Url.RouteUrl("t_redirect",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" data-type="button" data-width="200"></div>
+    @*<div class="fb-share-button" data-href="@Url.RouteUrl("t_redirect",routeValues: new {Id=Model.Id},protocol: Request.Url.Scheme )" data-type="button" data-width="200"></div>*@
 
 <div class="messageInputPositionWrapper">
-    <img src="~/Images/main_image.jpg" />
-    <textarea class="messageInput" title="Thought Text"
-        maxlength="163" autofocus id="txtMessage" name="txtMessage" disabled>@Model.Thought</textarea>
+    <img src="@Url.Content(Model.IsmConfiguration.BaseImageUrl)" />
+    <textarea class="messageInput" title="Thought Text" 
+        maxlength="163" autofocus id="txtMessage" name="txtMessage" disabled>@Model.IsmText</textarea>
 </div>
 Added by @Model.Username on @Model.CreatedOn.ToLocalTime()
 @section scripts{

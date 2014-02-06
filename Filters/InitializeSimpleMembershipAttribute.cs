@@ -4,9 +4,10 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
-using IevaThink.Models;
+using IsmsWebApplication.Models;
+using IsmsWebApplication.DataContext;
 
-namespace IevaThink.Filters
+namespace IsmsWebApplication.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class InitializeSimpleMembershipAttribute : ActionFilterAttribute
@@ -25,11 +26,11 @@ namespace IevaThink.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<IsmDataContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new IsmDataContext())
                     {
                         if (!context.Database.Exists())
                         {

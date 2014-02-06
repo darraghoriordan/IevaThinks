@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using IevaThink.Models;
+using IsmsWebApplication.Models;
 
-namespace IevaThink
+namespace IsmsWebApplication
 {
     public static class AuthConfig
     {
@@ -23,8 +23,8 @@ namespace IevaThink
             //    consumerSecret: "");
 
             OAuthWebSecurity.RegisterFacebookClient(
-                appId: "1441142482770530",
-                appSecret: "30340b2c1275c63d23bc835b93556ba6");
+                appId: "215230322000284",
+                appSecret: "cae9af6570b5c1c55ef7e4ab0eb568ae");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }

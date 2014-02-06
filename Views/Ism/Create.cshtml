@@ -1,0 +1,30 @@
+﻿@model IsmsWebApplication.Models.Ism
+@section head_additions{
+   
+     <style>
+        .messageInput {
+            width: @(Model.IsmConfiguration.BubbleTextInputWidth)px;
+            height:@(Model.IsmConfiguration.BubbleTextInputHeight)px;
+            left:@(Model.IsmConfiguration.BubbleTextInputLeft)px;
+            top: @(Model.IsmConfiguration.BubbleTextInputTop)px;
+        }
+    </style>
+    }
+@using (Html.BeginForm("Create", "Ism", FormMethod.Post, new { name = "frmSave", id = "frmSave" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" title="Save and Share" value="Save and Share" />
+}
+ @Html.DropDownList(
+ "ismConfigurationId",
+ (IEnumerable<SelectListItem>)ViewBag.IsmConfigurations,
+ htmlAttributes: new Dictionary<string, object>() {{"form","frmSave"}, {"data-endpoint",@Url.Content("~/api/ismconfiguration")}})
+
+<div class="messageInputPositionWrapper">
+   
+   <img id="BaseImage" src="@Url.Content(Model.IsmConfiguration.BaseImageUrl)" data-basepath="@Url.Content("~/")" /> 
+    <textarea class="messageInput" form="frmSave" title="Ism Text" maxlength="163" autofocus id="txtMessage" name="txtMessage">@Model.IsmText</textarea>
+</div>
+@section Scripts {
+     <script src="~/Scripts/createIsmFunctions.js" type="text/javascript"></script>
+}
